@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Your tasks</h1>
+    <ul>
+        <% for (let task of todos) {%>
+            <li> <%= task.time %>  <%= task.task %> <%= task.priority  %>  </li>
+        <%  }%>
+    </ul>
+    <h2>Add new tasks here</h2>
+    <form action="/todos/create" method="post">
+        <label for="task">Task Name</label><br>
+        <textarea name="task" id="task"></textarea><br><br>
+        <label for="time">Time</label>
+        <input type="number" name="time" id="time">
+        <label for="priority">Priority</label>
+        <input type="number" name="priority" id="priority">
+        <button>Add</button>
+    </form>
+</body>
+</html>
