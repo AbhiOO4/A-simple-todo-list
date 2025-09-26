@@ -1,11 +1,14 @@
 
 const {v4: uuid} = require('uuid')
 
+const path = require('path')
 const express = require('express');
 
 const app = express()
 
 app.set('view engine','ejs')
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -14,22 +17,21 @@ const todos = [
     {
         id : uuid(),
         task : 'Workout',
-        time : 10,
+        time : '15:00',
         priority : 1
     },
     {
         id : uuid(),
         task : 'Create projects',
-        time : 12,
+        time : '12:00',
         priority : 3
     },
-    {
-        id : uuid(),
-        task : 'Eat protiens',
-        time : 2,
-        priority : 1
-    },
 ]
+
+
+todos.sort((a, b) => a.time.localeCompare(b.time));
+console.log(todos);
+
 
 
 app.get('/todos',(req, res)=> {
@@ -37,10 +39,12 @@ app.get('/todos',(req, res)=> {
 })
 
 app.post('/todos/create',(req,res)=> {
-    const {task, time, priority} = req.body
+    let {task, time, priority} = req.body
     console.log(req.body)
     let id = uuid()
+    priority = parseInt(priority)
     todos.push({id, task, time, priority})
+    todos.sort((a, b) => a.time.localeCompare(b.time));
     console.log('It worked')
     res.redirect('/todos')
 })
