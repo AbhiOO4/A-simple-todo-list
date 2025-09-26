@@ -2,3 +2,31 @@
 .doneMark {
     text-decoration: line-through;
 }
+
+.red{
+    color: red;
+}
+
+.orange{
+    color: orange;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.blue{
+    color: blue;
+}
+
+.green{
+    color: green;
+}
+
+.delButton{
+    all: unset;
+}
+
+.delButton:hover{
+    color: red;
+}
