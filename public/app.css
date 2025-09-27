@@ -1,5 +1,10 @@
 
-.doneMark {
+body{
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+
+.checked {
     text-decoration: line-through;
 }
 
@@ -23,6 +28,10 @@
     color: green;
 }
 
+button{
+    all: unset;
+}
+
 .delButton{
     all: unset;
 }
@@ -30,3 +39,4 @@
 .delButton:hover{
     color: red;
 }
+

@@ -20,16 +20,19 @@ app.use(methodOverride('_method'));
 let todos = [
     {
         id : uuid(),
-        task : 'Workout',
-        time : '15:00',
-        priority : 1
+        task : 'Create projects',
+        time : '12:00',
+        priority : 3,
+        checked : true
     },
     {
         id : uuid(),
-        task : 'Create projects',
-        time : '12:00',
-        priority : 3
+        task : 'Workout',
+        time : '15:00',
+        priority : 1,
+        checked : false
     },
+    
 ]
 
 const colors = ['white','red','orange','yellow','blue','green']
@@ -43,14 +46,29 @@ app.get('/todos',(req, res)=> {
     res.render('index.ejs',{todos,colors})
 })
 
+
+
 app.post('/todos/create',(req,res)=> {
     let {task, time, priority} = req.body
-    console.log(req.body)
     let id = uuid()
     priority = parseInt(priority)
-    todos.push({id, task, time, priority})
+    let checked = false
+    todos.push({id, task, time, priority, checked})
     todos.sort((a, b) => a.time.localeCompare(b.time));
+    console.log(todos)
     console.log('It worked')
+    res.redirect('/todos')
+})
+
+app.post('/todos/:id',(req,res) => {
+    const {id} = req.params
+    const found = todos.find((task)=> (task.id == id))
+    if (found.checked){
+        found.checked = false
+    }
+    else{
+        found.checked = true
+    }
     res.redirect('/todos')
 })
 
@@ -59,6 +77,9 @@ app.delete('/todos/:id',(req,res) => {
     todos = todos.filter((task)=> (task.id != id));
     res.redirect('/todos')
 })
+
+
+
 
 
 
