@@ -1,5 +1,6 @@
 
-<img width="1216" height="756" alt="todoist" src="https://github.com/user-attachments/assets/669b4ee2-f35f-40a7-97c2-859383757bdd" />
+<img width="1906" height="921" alt="Screenshot (38)" src="https://github.com/user-attachments/assets/09b53d51-3332-4a7e-bc0d-f05c5a2eca04" />
+
 
 # A Simple Todo List
 
