@@ -10,36 +10,40 @@
 <body class="text-white">
     <div class="d-flex justify-content-center">
     <div>
-    <h2 class="text-center m-5">Add new tasks here</h2>
-    <form action="/todos/create" method="post" id="myForm">
-        <div class="d-flex align-items-start row w-auto">
-            <section class="m-2 col-12 col-md-4">
-                <label class="form-label" for="task">Task Name</label><br>
-                <textarea class="form-control form-text" name="task" id="task"></textarea>
-            </section>
-            <section class="m-2 col-12 col-md-3">
-                <label class="form-label" for="time">Time</label>
-                <input class="form-control" type="time" name="time" id="time">
-            </section>
-            <section class="m-2 col-12 col-md-3">
-                <label for="priority" class="form-label">Priority</label>
-                <select class="form-control form-select" name="priority" id="priority">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </section>
-        </div>
-        <div class="d-flex justify-content-center mt-3">
-            <button class="btn btn-primary w-25 rounded-4">Add task 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                </svg>
-            </button>
+    <h2 class="text-center my-4">Add new tasks here</h2>
+    <form action="/todos/create" method="post" id="myForm" class="bgForm p-3 rounded-5">
+        <div class="">
+            <div class="d-flex justify-content-center mb-3">
+                <section class="col-12">
+                    <label class="form-label" for="task">Task Name</label><br>
+                    <textarea class="textArea inputStyle" name="task" id="task"></textarea>
+                </section>
+            </div>
+            <div class="d-flex justify-content-start">
+                <section class="col-3">
+                    <label class="form-label" for="time">Time</label>
+                    <input class="form-control w-auto inputStyle" type="time" name="time" id="time">
+                </section>
+                <section class="col-3">
+                    <label for="priority" class="form-label">Priority</label>
+                    <select class="form-control form-select w-auto inputStyle" name="priority" id="priority">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </section>
+            </div>
+            <div class="d-flex justify-content-center mt-3 mb-2">
+                <button class="btn btn-primary w-25 rounded-4" id="addTask">Add task
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </form>
     </div>
@@ -47,9 +51,10 @@
 
     <div class="d-flex justify-content-center mt-5">
     <div class="">
-        <h1 class="text-center">Your tasks</h1>
+        <h1 class="text-center mb-4">Your tasks</h1>
         <ol>
             <% for (let task of todos) {%>
+                <div class="my-2">
                 <li class=<%= task.checked ? "checked" : "" %>>
                     <form method="post" class="d-inline-block" id="delForm" action="/todos/<%= task.id%>?_method=DELETE">
                         <button class="delButton mx-3">
@@ -89,6 +94,7 @@
                                 </button>
                             </form>
                 </li>
+                </div>
                 <% }%>
         </ol>
     </div>

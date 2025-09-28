@@ -37,16 +37,11 @@ let todos = [
 
 const colors = ['white','red','orange','yellow','blue','green']
 
-
 todos.sort((a, b) => a.time.localeCompare(b.time));
-
-
 
 app.get('/todos',(req, res)=> {
     res.render('index.ejs',{todos,colors})
 })
-
-
 
 app.post('/todos/create',(req,res)=> {
     let {task, time, priority} = req.body
@@ -77,9 +72,6 @@ app.delete('/todos/:id',(req,res) => {
     todos = todos.filter((task)=> (task.id != id));
     res.redirect('/todos')
 })
-
-
-
 
 
 

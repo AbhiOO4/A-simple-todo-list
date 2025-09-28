@@ -26,14 +26,14 @@ form.addEventListener("submit", (event)=> {
 
 
 
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', (event) => {
-    let li = checkbox.parentElement
-    if (event.target.checked) {
-        li.classList.add('doneMark')
-    } else {
-      li.classList.remove('doneMark')
-    }
-  });
-});
+// checkboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', (event) => {
+//     let li = checkbox.parentElement
+//     if (event.target.checked) {
+//         li.classList.add('doneMark')
+//     } else {
+//       li.classList.remove('doneMark')
+//     }
+//   });
+// });
 
