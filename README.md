@@ -1,5 +1,6 @@
 
-<img width="1906" height="921" alt="Screenshot (38)" src="https://github.com/user-attachments/assets/09b53d51-3332-4a7e-bc0d-f05c5a2eca04" />
+<img width="1906" height="911" alt="Screenshot (73)" src="https://github.com/user-attachments/assets/85c1e396-1f9d-4557-910c-fbb753e6d85d" />
+
 
 
 # A Simple Todo List
