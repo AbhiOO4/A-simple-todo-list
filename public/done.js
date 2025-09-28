@@ -2,7 +2,9 @@
 
 const checkboxes = document.querySelectorAll('input[name="done"]');
 
-const form = document.querySelector("#myForm")
+const form = document.querySelector("#myForm");
+
+const addTaskHere = document.querySelector("#addTaskHere");
 
 
 form.addEventListener("submit", (event)=> {
@@ -20,6 +22,16 @@ form.addEventListener("submit", (event)=> {
     if (errors.length > 0){
         event.preventDefault()
         alert(errors.join('\n'))
+    }
+})
+
+addTaskHere.addEventListener("click", (event)=>{
+    form.classList.toggle("active")
+    if (form.classList.contains("active")){
+        addTaskHere.textContent = "Close"
+    }
+    else{
+        addTaskHere.textContent = "Add task here"
     }
 })
 
